@@ -21,20 +21,8 @@ public:
         apartmentNumber = 0;
     }
 
-   // Address(std::string сityName, std::string streetName, int houseNumber, int apartmentNumber)// конструктор класса
-   // {
-   //     this->сityName = сityName;
-    //    this->streetName = streetName;
-    //    this->houseNumber = houseNumber;
-   //     this->apartmentNumber = apartmentNumber;
-  //  }
-    void set(std::string сityName, std::string streetName, int houseNumber, int apartmentNumber)// конструктор класса
-    {
-        this->сityName = сityName;
-        this->streetName = streetName;
-        this->houseNumber = houseNumber;
-        this->apartmentNumber = apartmentNumber;
-    }
+  
+   
     
     void set_сityName(std::string сityName)// 
     {
@@ -58,7 +46,7 @@ public:
         this->apartmentNumber = apartmentNumber;
 
     }
-    int setCopyArr(std::string &сityName, std::string &streetName, int &houseNumber, int &apartmentNumber, Address *address,int sizeArr)
+   /* int setCopyArr(std::string& сityName, std::string& streetName, int& houseNumber, int& apartmentNumber, Address* address, int sizeArr)
     {
         std::ifstream f("in.txt");
         for (int i = 0; i < sizeArr; i++)
@@ -76,7 +64,8 @@ public:
             address[i].getPrint();
         }
         f.close();
-    }
+   }
+   */
    std::string  get_output_address()
     {
         return сityName +","+ streetName +"," + std::to_string(houseNumber)+"," + std::to_string(apartmentNumber);
@@ -97,7 +86,7 @@ int main()
     SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "rus");
-   // system("chcp 1251");
+  
 
   /*std::ofstream fout("in.txt"); // открыли файл C:\in.txt на запись
     fout << 3 << std::endl;
