@@ -1,0 +1,4 @@
+3
+Novosibirsk,Peace,85,64
+Omsk,Pushkin,2,13
+Moscow,Builders,34,12
