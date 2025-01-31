@@ -8,12 +8,12 @@
 
 class Address {
 private:
-   std::string сityName;
-   std::string streetName;
-   int houseNumber;
-   int apartmentNumber;
+     std:: string   сityName;
+     std::string streetName;
+    int houseNumber;
+    int apartmentNumber;
 public:
-    Address()
+   Address()
     {
         this->сityName = "c";
         streetName = "S";
@@ -22,50 +22,19 @@ public:
     }
 
   
-   
-    
-    void set_сityName(std::string сityName)// 
+    Address(std::string cityName, std::string streetName, int  houseNumber, int apartmentNumber) 
     {
-        this->сityName = сityName;
-       
-    }
-    void set_streetName(std::string streetName)// 
-    {
+        this->сityName = cityName;
         this->streetName = streetName;
-
-    }
-
-    void set_houseNumber(int houseNumber)// 
-    {
         this->houseNumber = houseNumber;
-
-    }
-
-    void set_apartmentNumber(int apartmentNumber)// 
-    {
         this->apartmentNumber = apartmentNumber;
-
+    
     }
-   /* int setCopyArr(std::string& сityName, std::string& streetName, int& houseNumber, int& apartmentNumber, Address* address, int sizeArr)
-    {
-        std::ifstream f("in.txt");
-        for (int i = 0; i < sizeArr; i++)
-        {
-            address[i] = Address();
-           
-            f >> сityName;
-            address[i].set_сityName(сityName);
-            f >> streetName;
-            address[i].set_streetName(streetName);
-            f >> houseNumber;
-            address[i].set_houseNumber(houseNumber);
-            f >> apartmentNumber;
-            address[i].set_apartmentNumber(apartmentNumber);
-            address[i].getPrint();
-        }
-        f.close();
-   }
-   */
+
+   
+
+    
+    
    std::string  get_output_address()
     {
         return сityName +","+ streetName +"," + std::to_string(houseNumber)+"," + std::to_string(apartmentNumber);
@@ -104,13 +73,14 @@ int main()
     fout << 64 << std::endl;
     fout.close(); // закрыли файл
    */ 
-
+ 
     int sizeArr{1};
     int N{};
    std:: string сityName{};
    std::string streetName{};
    int houseNumber{};
    int apartmentNumber{};
+
     std::ifstream f("in.txt");
     if (f.is_open()==0)
     {
@@ -121,25 +91,24 @@ int main()
 
         f >> sizeArr;
 
-        Address *address = new Address[sizeArr];
-     
-        
+        Address * address = new Address[sizeArr];
+      
 
     
         for (int i = 0; i < sizeArr; i++)
         {
            
-            address[i] = Address();
+         
 
             f >> сityName;
-            address[i].set_сityName(сityName);
+           
             f >> streetName;
-            address[i].set_streetName(streetName);
+         
             f >> houseNumber;
-            address[i].set_houseNumber(houseNumber);
+         
             f >> apartmentNumber;
-            address[i].set_apartmentNumber(apartmentNumber);
-           // address[i].getPrint();
+         
+            address[i] = Address(сityName,streetName,houseNumber,apartmentNumber);
 
 
         }
@@ -147,7 +116,7 @@ int main()
        
       
 
-       std::ofstream fout("out.txt"); // открыли файл C:\out.txt на запись
+      std::ofstream fout("out.txt"); // открыли файл C:\out.txt на запись
        fout << sizeArr << std::endl;
 
     
@@ -158,6 +127,7 @@ int main()
     }
 
     f.close();
+
     delete[] address;
     return 0;
 }
